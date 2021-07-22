@@ -111,7 +111,7 @@ plt.ylabel("Stock return")
 plt.legend(loc="upper left")
 plt.savefig('seq1.png')
 #plt.show()
-
+plt.clf()
 
 x_batch, y_batch = dh.next_stock_batch(batch_size, n_steps, x_test)
 x_batch, y_batch = torch.from_numpy(x_batch), torch.from_numpy(y_batch).squeeze(-1)
@@ -141,3 +141,4 @@ plt.ylabel("Stock return")
 plt.legend(loc="upper left")
 plt.savefig('seq2.png')
 #plt.show()
+plt.clf()
