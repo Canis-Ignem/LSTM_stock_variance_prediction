@@ -75,12 +75,12 @@ def train(n_iterations, data):
                 torch.save(LSTM, "Best_val_model.pth")
             print(iter, "\t Train Loss:", loss.item(), "\t Test Loss:", test_loss.item() )
 
-    plt.plot(train_loss, label= "Train Loss")
-    plt.xlabel(" Iteration ")
-    plt.ylabel("Loss value")
-    plt.legend(loc="upper left")
+    #plt.plot(train_loss, label= "Train Loss")
+    #plt.xlabel(" Iteration ")
+    #plt.ylabel("Loss value")
+    #plt.legend(loc="upper left")
     #plt.show()
-    plt.clf()
+    #plt.clf()
 #train(501, x_train)
 LSTM = torch.load("Best_val_model.pth")
 
@@ -104,14 +104,14 @@ with torch.no_grad():
 y = y_batch.cpu().numpy().reshape((batch_size,hidden_dim))[0,:]
 o = outputs.cpu().numpy().reshape((batch_size,hidden_dim))[0,:]
 
-plt.plot(y, label= "Ground truth")
-plt.plot(o, label = "Prediction")
-plt.xlabel(" Time ")
-plt.ylabel("Stock return")
-plt.legend(loc="upper left")
-plt.savefig('seq1.png')
+#plt.plot(y, label= "Ground truth")
+#plt.plot(o, label = "Prediction")
+#plt.xlabel(" Time ")
+#plt.ylabel("Stock return")
+#plt.legend(loc="upper left")
+#plt.savefig('seq1.png')
 #plt.show()
-plt.clf()
+#plt.clf()
 
 x_batch, y_batch = dh.next_stock_batch(batch_size, n_steps, x_test)
 x_batch, y_batch = torch.from_numpy(x_batch), torch.from_numpy(y_batch).squeeze(-1)
