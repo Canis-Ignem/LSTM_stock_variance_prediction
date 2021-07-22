@@ -81,8 +81,8 @@ def train(n_iterations, data):
     plt.legend(loc="upper left")
     #plt.show()
 
-train(501, x_train)
-LSTM = torch.load("model2.pth")
+#train(501, x_train)
+LSTM = torch.load("Best_val_model.pth")
 
 
 
