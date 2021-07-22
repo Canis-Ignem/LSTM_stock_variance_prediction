@@ -80,7 +80,7 @@ def train(n_iterations, data):
     plt.ylabel("Loss value")
     plt.legend(loc="upper left")
     #plt.show()
-
+    plt.clf()
 #train(501, x_train)
 LSTM = torch.load("Best_val_model.pth")
 
