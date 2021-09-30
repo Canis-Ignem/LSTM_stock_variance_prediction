@@ -85,7 +85,6 @@ def train(n_iterations, data):
 LSTM = torch.load("Best_val_model.pth")
 
 
-
 x_batch, y_batch = dh.next_stock_batch(batch_size, n_steps, x_train)
 x_batch, y_batch = torch.from_numpy(x_batch), torch.from_numpy(y_batch).squeeze(-1)
 x_batch, y_batch = Variable(x_batch).float(), Variable(y_batch).float()
@@ -97,6 +96,7 @@ if torch.cuda.is_available():
 
 
 with torch.no_grad():
+    LSTM.eval()
     outputs = LSTM(x_batch)
     loss = criterion(y_batch.flatten().cuda(), outputs.cuda() )
     print(loss)
@@ -124,6 +124,7 @@ if torch.cuda.is_available():
 
 
 with torch.no_grad():
+    LSTM.eval()
     outputs = LSTM(x_batch)
     loss = criterion(y_batch.flatten().cuda(), outputs.cuda() )
     print(loss)
